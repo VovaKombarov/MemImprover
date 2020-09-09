@@ -11,10 +11,14 @@ namespace MemImprover.Controllers
     [Route("[controller]")]
     public class WeatherForecastController : ControllerBase
     {
-        private static readonly string[] Summaries = new[]
+       
+        public static List<Note> Notes = new List<Note>()
         {
-            "Freezing", "Bracing", "Chilly", "Cool", "Mild", "Warm", "Balmy", "Hot", "Sweltering", "Scorching"
+            new Note() { Id = 1, Name = "Заметка 1", Text = "Text1", StartDate = new DateTime(2020, 12, 12) },
+            new Note() { Id = 2, Name = "Заметка 2", Text = "Text2", StartDate = new DateTime(2020, 1, 1) },
+            new Note() { Id = 3, Name = "Заметка 3", Text = "Text3", StartDate = new DateTime(2020, 2, 2) },
         };
+
 
         private readonly ILogger<WeatherForecastController> _logger;
 
@@ -24,16 +28,9 @@ namespace MemImprover.Controllers
         }
 
         [HttpGet]
-        public IEnumerable<WeatherForecast> Get()
+        public IEnumerable<Note> Get()
         {
-            var rng = new Random();
-            return Enumerable.Range(1, 5).Select(index => new WeatherForecast
-            {
-                Date = DateTime.Now.AddDays(index),
-                TemperatureC = rng.Next(-20, 55),
-                Summary = Summaries[rng.Next(Summaries.Length)]
-            })
-            .ToArray();
+            return Notes;
         }
     }
 }
