@@ -22,7 +22,7 @@ export class Main extends Component {
         super(props);
 
         this.state = {
-            notes: [], loading: true };
+            notes: [], loading: true, current:"" };
        
     }
 
@@ -30,17 +30,27 @@ export class Main extends Component {
         this.populateWeatherData();
     }
 
+
     render() {
         return (
             <div>
                 <p>Список заметок </p>
+                <button type="button" class="btn btn-primary">Primary</button>
                 <NoteTable notes={this.state.notes} /> 
             </div>
         );
     }
 
+    // Возможно так будет работать запрос с параметром
+    //async getNoteById() {
+    //    const response = await fetch('note' + new URLSearchParams({ id: 1 }));
+    //    const data = await response.json();
+    //    this.setState({ current: data, loading: false });
+    
+    //  }
+
     async populateWeatherData() {
-        const response = await fetch('weatherforecast');
+        const response = await fetch('note');
         const data = await response.json();
         this.setState({ notes: data, loading: false });
     }

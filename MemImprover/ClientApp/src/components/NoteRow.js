@@ -15,7 +15,9 @@ export class NoteRow extends Component {
                     <td>{note.name}</td>
                     <td>{note.text}</td>
                     <td>{note.startDate}</td>
-                </tr>
+            </tr>
+
+            
         );
     }
 }

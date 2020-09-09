@@ -20,12 +20,13 @@ export class NoteTable extends Component {
         });
 
             return (
-                <table>
+                <table class="table table-dark">
                     <thead>
                         <tr>
                             <th>Идентификатор</th>
                             <th>Name</th>
                             <th>Текст</th>
+                            <th>Дата</th>
                         </tr>
                     </thead>
                     <tbody>{rows}</tbody>
