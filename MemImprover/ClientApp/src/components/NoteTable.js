@@ -20,7 +20,7 @@ export class NoteTable extends Component {
         });
 
             return (
-                <table class="table table-dark">
+                <table class="table">
                     <thead>
                         <tr>
                             <th>Идентификатор</th>
